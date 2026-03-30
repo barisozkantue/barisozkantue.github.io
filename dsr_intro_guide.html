@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Write a DSR Introduction — A Guide for Junior Researchers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #F7F5F0;
+    --surface: #FFFFFF;
+    --surface2: #F0EDE6;
+    --text-primary: #1A1814;
+    --text-secondary: #5C5850;
+    --text-muted: #9C9890;
+    --border: rgba(0,0,0,0.10);
+    --border-strong: rgba(0,0,0,0.18);
+
+    --s1-bg: #E8F0FC; --s1-text: #1A3A7A; --s1-accent: #3B6DD4; --s1-line: #9BB8EE;
+    --s2-bg: #FDF0DC; --s2-text: #5C3200; --s2-accent: #C47A10; --s2-line: #F0BE70;
+    --s3-bg: #EEEDfe; --s3-text: #2E2580; --s3-accent: #6258CC; --s3-line: #A8A2E4;
+    --s4-bg: #E2F5EC; --s4-text: #0A4030; --s4-accent: #1A9060; --s4-line: #60C8A0;
+    --s5-bg: #FAECE6; --s5-text: #601800; --s5-accent: #C04818; --s5-line: #EE8860;
+    --s6-bg: #EDEAE4; --s6-text: #302E28; --s6-accent: #706860; --s6-line: #B8B4AC;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #18160F;
+      --surface: #22201A;
+      --surface2: #2C2920;
+      --text-primary: #EDE8DC;
+      --text-secondary: #A09888;
+      --text-muted: #6C6458;
+      --border: rgba(255,255,255,0.08);
+      --border-strong: rgba(255,255,255,0.15);
+
+      --s1-bg: #0E1E40; --s1-text: #98B8F4; --s1-accent: #6898F0; --s1-line: #2A4880;
+      --s2-bg: #301800; --s2-text: #F0B860; --s2-accent: #D08820; --s2-line: #603000;
+      --s3-bg: #18146A; --s3-text: #B0ACEE; --s3-accent: #9088E4; --s3-line: #302880;
+      --s4-bg: #062818; --s4-text: #68D4A0; --s4-accent: #28A870; --s4-line: #0C5030;
+      --s5-bg: #380800; --s5-text: #F09070; --s5-accent: #E06040; --s5-line: #701800;
+      --s6-bg: #282420; --s6-text: #C0B8A8; --s6-accent: #908880; --s6-line: #484440;
+    }
+  }
+
+  html { font-size: 16px; scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text-primary);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 64px 24px 48px;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--s3-accent);
+  }
+  .hero-sub {
+    font-size: 15px;
+    color: var(--text-secondary);
+    max-width: 520px;
+    line-height: 1.8;
+    margin-bottom: 28px;
+  }
+  .hero-meta {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .hero-meta span {
+    font-size: 12px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .hero-meta strong { color: var(--text-secondary); font-weight: 500; }
+
+  /* Layout */
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* Thread */
+  .thread { position: relative; }
+  .thread::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 24px;
+    bottom: 24px;
+    width: 1px;
+    background: var(--border-strong);
+  }
+
+  /* Step */
+  .step {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 12px;
+    position: relative;
+  }
+
+  .step-spine {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    width: 40px;
+  }
+
+  .step-num {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 500;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+    border: 1.5px solid;
+    transition: transform 0.15s;
+  }
+
+  .step-card {
+    flex: 1;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: box-shadow 0.2s, border-color 0.2s;
+    cursor: pointer;
+  }
+  .step-card:hover { border-color: var(--border-strong); }
+
+  .step-card-header {
+    padding: 18px 20px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .step-top-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 6px;
+    flex-wrap: wrap;
+  }
+  .step-tag {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+  .step-length {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: var(--surface2);
+    color: var(--text-muted);
+    margin-left: auto;
+  }
+  .step-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+  }
+  .step-question {
+    font-size: 12px;
+    font-style: italic;
+    color: var(--text-muted);
+  }
+
+  .step-card-body {
+    padding: 16px 20px;
+  }
+  .step-desc {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    margin-bottom: 12px;
+  }
+
+  .expand-btn {
+    font-size: 11px;
+    color: var(--text-muted);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: color 0.15s;
+  }
+  .expand-btn:hover { color: var(--text-secondary); }
+  .expand-btn .chevron { transition: transform 0.2s; display: inline-block; }
+  .expand-btn.open .chevron { transform: rotate(180deg); }
+
+  .expandable {
+    display: none;
+    border-top: 1px solid var(--border);
+    padding-top: 14px;
+    margin-top: 12px;
+  }
+  .expandable.open { display: block; }
+
+  .callout {
+    font-size: 13px;
+    line-height: 1.65;
+    padding: 10px 12px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    border-left: 2px solid;
+  }
+  .callout strong { font-weight: 500; }
+  .callout-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    color: var(--text-muted);
+  }
+
+  /* Step color theming */
+  .s1 .step-num  { background: var(--s1-bg); color: var(--s1-text); border-color: var(--s1-line); }
+  .s1 .step-tag  { background: var(--s1-bg); color: var(--s1-text); }
+  .s1 .callout   { background: var(--s1-bg); color: var(--s1-text); border-color: var(--s1-accent); }
+
+  .s2 .step-num  { background: var(--s2-bg); color: var(--s2-text); border-color: var(--s2-line); }
+  .s2 .step-tag  { background: var(--s2-bg); color: var(--s2-text); }
+  .s2 .callout   { background: var(--s2-bg); color: var(--s2-text); border-color: var(--s2-accent); }
+
+  .s3 .step-num  { background: var(--s3-bg); color: var(--s3-text); border-color: var(--s3-line); }
+  .s3 .step-tag  { background: var(--s3-bg); color: var(--s3-text); }
+  .s3 .callout   { background: var(--s3-bg); color: var(--s3-text); border-color: var(--s3-accent); }
+
+  .s4 .step-num  { background: var(--s4-bg); color: var(--s4-text); border-color: var(--s4-line); }
+  .s4 .step-tag  { background: var(--s4-bg); color: var(--s4-text); }
+  .s4 .callout   { background: var(--s4-bg); color: var(--s4-text); border-color: var(--s4-accent); }
+
+  .s5 .step-num  { background: var(--s5-bg); color: var(--s5-text); border-color: var(--s5-line); }
+  .s5 .step-tag  { background: var(--s5-bg); color: var(--s5-text); }
+  .s5 .callout   { background: var(--s5-bg); color: var(--s5-text); border-color: var(--s5-accent); }
+
+  .s6 .step-num  { background: var(--s6-bg); color: var(--s6-text); border-color: var(--s6-line); }
+  .s6 .step-tag  { background: var(--s6-bg); color: var(--s6-text); }
+  .s6 .callout   { background: var(--s6-bg); color: var(--s6-text); border-color: var(--s6-accent); }
+
+  /* Flow bar */
+  .flow-section {
+    margin-top: 36px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px 24px;
+  }
+  .section-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+  }
+  .flow-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+  .chip {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 5px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .chip-arrow { font-size: 12px; color: var(--text-muted); }
+  .flow-note {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+  }
+  .flow-note strong { color: var(--text-primary); font-weight: 500; }
+
+  /* Mistakes */
+  .mistakes-section {
+    margin-top: 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px 24px;
+  }
+  .mistake {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 14px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+  .mistake:last-child { margin-bottom: 0; }
+  .mistake-x {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #FDE8E4;
+    color: #B03020;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  @media (prefers-color-scheme: dark) {
+    .mistake-x { background: #401008; color: #F09080; }
+  }
+  .mistake strong { color: var(--text-primary); font-weight: 500; }
+
+  /* References */
+  .ref-section {
+    margin-top: 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px 24px;
+  }
+  .ref-item {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .ref-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ref-year {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: var(--surface2);
+    color: var(--text-muted);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .ref-item strong { color: var(--text-primary); font-weight: 500; }
+
+  /* Footer */
+  footer {
+    margin-top: 48px;
+    padding: 24px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (max-width: 540px) {
+    .hero { padding: 40px 16px 32px; }
+    .container { padding: 0 16px 60px; }
+    .step-card-header, .step-card-body { padding: 14px 16px; }
+    .flow-section, .mistakes-section, .ref-section { padding: 16px; }
+    .thread::before { left: 19px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <p class="hero-eyebrow">Research Methods Guide</p>
+  <h1>How to Write a <em>DSR</em> Introduction</h1>
+  <p class="hero-sub">A step-by-step guide for junior researchers on structuring a Design Science Research paper introduction — from establishing relevance to justifying your methodology.</p>
+  <div class="hero-meta">
+    <span>📄 <strong>6 moves</strong></span>
+    <span>⏱ <strong>500–800 words</strong> total</span>
+    <span>🎯 <strong>Design Science Research</strong></span>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="thread">
+
+    <!-- Step 1 -->
+    <div class="step s1">
+      <div class="step-spine">
+        <div class="step-num">1</div>
+      </div>
+      <div class="step-card">
+        <div class="step-card-header">
+          <div class="step-top-row">
+            <span class="step-tag">Set the scene</span>
+            <span class="step-length">2–4 sentences</span>
+          </div>
+          <div class="step-title">Establish relevance</div>
+          <div class="step-question">"Why should I care about this topic at all?"</div>
+        </div>
+        <div class="step-card-body">
+          <p class="step-desc">Describe the real-world situation your paper is about. No definitions, no citations yet — just paint a picture of the domain and why it matters to organizations, practitioners, or society. Open a door; don't walk through it yet.</p>
+          <button class="expand-btn" onclick="toggle(this)">Show example & tips <span class="chevron">▾</span></button>
+          <div class="expandable">
+            <p class="callout-label">Example opening</p>
+            <div class="callout s1">"Organizations increasingly share data across institutional boundaries to unlock collaborative value, yet doing so in a trustworthy and sovereign manner remains an unresolved infrastructure challenge."</div>
+            <p class="callout-label" style="margin-top:12px;">Avoid</p>
+            <div class="callout s1">Starting with <strong>"According to X, a dataspace is..."</strong> — definitions make readers passive immediately. Start with real-world consequence instead.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="step s2">
+      <div class="step-spine">
+        <div class="step-num">2</div>
+      </div>
+      <div class="step-card">
+        <div class="step-card-header">
+          <div class="step-top-row">
+            <span class="step-tag">Name the problem</span>
+            <span class="step-length">1 paragraph</span>
+          </div>
+          <div class="step-title">Identify the need</div>
+          <div class="step-question">"What is actually broken or missing?"</div>
+        </div>
+        <div class="step-card-body">
+          <p class="step-desc">Zoom in to a specific, concrete problem. In DSR, this is usually that practitioners <em>lack a tool, method, or framework</em> that would help them do their job better. Be specific about <em>who</em> has the problem and <em>under what conditions</em>.</p>
+          <button class="expand-btn" onclick="toggle(this)">Show example & tips <span class="chevron">▾</span></button>
+          <div class="expandable">
+            <p class="callout-label">Example</p>
+            <div class="callout s2">"Organizations that want to participate in data sharing ecosystems have no structured guidance on how to design their participation in a way that is both technically workable and acceptable to all stakeholders involved."</div>
+            <p class="callout-label" style="margin-top:12px;">Tip</p>
+            <div class="callout s2">A well-stated problem makes a practitioner nod and say <strong>"yes, that is exactly our issue."</strong> If it could apply to almost any topic, it is still too vague.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="step s3">
+      <div class="step-spine">
+        <div class="step-num">3</div>
+      </div>
+      <div class="step-card">
+        <div class="step-card-header">
+          <div class="step-top-row">
+            <span class="step-tag">Review & gap</span>
+            <span class="step-length">2–3 paragraphs</span>
+          </div>
+          <div class="step-title">Spot the research gap</div>
+          <div class="step-question">"Has nobody worked on this before?"</div>
+        </div>
+        <div class="step-card-body">
+          <p class="step-desc">In two parts: first survey what prior work <em>has</em> addressed (Part A), then pivot with a contrast word — "however," "despite this," "yet" — to state what is still missing (Part B). This is the most citation-dense part of your introduction.</p>
+          <button class="expand-btn" onclick="toggle(this)">Show gap types <span class="chevron">▾</span></button>
+          <div class="expandable">
+            <p class="callout-label">Three common DSR gap types</p>
+            <div class="callout s3"><strong>Prescriptive gap</strong> — prior work describes the problem but gives no design solution</div>
+            <div class="callout s3" style="margin-top:6px;"><strong>Scope gap</strong> — existing artifacts address adjacent problems, not this specific combination of requirements</div>
+            <div class="callout s3" style="margin-top:6px;"><strong>Validation gap</strong> — a solution exists but has never been tested or evaluated in this context</div>
+            <div class="callout s3" style="margin-top:10px;">Avoid saying <strong>"little research exists on this topic"</strong> — reviewers will challenge it. Name the specific gap precisely.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="step s4">
+      <div class="step-spine">
+        <div class="step-num">4</div>
+      </div>
+      <div class="step-card">
+        <div class="step-card-header">
+          <div class="step-top-row">
+            <span class="step-tag">State objective</span>
+            <span class="step-length">1–2 sentences</span>
+          </div>
+          <div class="step-title">Define your research objective</div>
+          <div class="step-question">"So what will you actually do?"</div>
+        </div>
+        <div class="step-card-body">
+          <p class="step-desc">Tell the reader exactly what you will <em>build and evaluate</em>. In DSR, always use action verbs — <em>design, develop, construct, evaluate</em>. Also name the artifact type: framework, model, method, instantiation, or design principles.</p>
+          <button class="expand-btn" onclick="toggle(this)">Show example <span class="chevron">▾</span></button>
+          <div class="expandable">
+            <p class="callout-label">Example objective</p>
+            <div class="callout s4">"This paper develops and evaluates a framework that helps organizations design their participation in industrial data spaces, providing practical guidance for practitioners and new design knowledge for researchers."</div>
+            <div class="callout s4" style="margin-top:6px;">The artifact you name here must directly solve the problem in Step 2. The reader should feel your objective is the <strong>obvious answer</strong> to the gap.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 5 -->
+    <div class="step s5">
+      <div class="step-spine">
+        <div class="step-num">5</div>
+      </div>
+      <div class="step-card">
+        <div class="step-card-header">
+          <div class="step-top-row">
+            <span class="step-tag">Justify DSR</span>
+            <span class="step-length">1 paragraph</span>
+          </div>
+          <div class="step-title">Position your methodology</div>
+          <div class="step-question">"Why are you using this approach?"</div>
+        </div>
+        <div class="step-card-body">
+          <p class="step-desc">Explain why DSR is the right methodology. The logic is simple: your goal requires <em>creating</em> something new, and DSR is specifically designed for research that produces useful artifacts while generating generalizable knowledge.</p>
+          <button class="expand-btn" onclick="toggle(this)">Show key references <span class="chevron">▾</span></button>
+          <div class="expandable">
+            <p class="callout-label">The three DSR pillars to always cite</p>
+            <div class="callout s5"><strong>Hevner et al. (2004)</strong> — the foundational DSR framework in Information Systems research</div>
+            <div class="callout s5" style="margin-top:6px;"><strong>Peffers et al. (2007)</strong> — the six-step DSRM process model</div>
+            <div class="callout s5" style="margin-top:6px;"><strong>Gregor & Hevner (2013)</strong> — knowledge contributions and positioning in DSR</div>
+            <div class="callout s5" style="margin-top:10px;">Ask yourself: <strong>could I answer my objective with only interviews or a literature review?</strong> If no — because you need to build and test something — that is your justification.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 6 -->
+    <div class="step s6">
+      <div class="step-spine">
+        <div class="step-num">6</div>
+      </div>
+      <div class="step-card">
+        <div class="step-card-header">
+          <div class="step-top-row">
+            <span class="step-tag">Roadmap</span>
+            <span class="step-length">1 paragraph</span>
+          </div>
+          <div class="step-title">Sketch the DSR process & paper structure</div>
+          <div class="step-question">"How does the rest of the paper unfold?"</div>
+        </div>
+        <div class="step-card-body">
+          <p class="step-desc">Close with two things: how you applied DSR in this specific paper (which process or cycle you followed), and a section-by-section overview so the reader knows what is coming.</p>
+          <button class="expand-btn" onclick="toggle(this)">Show example <span class="chevron">▾</span></button>
+          <div class="expandable">
+            <p class="callout-label">Example roadmap sentence</p>
+            <div class="callout s6">"Following Peffers et al.'s (2007) six-step DSRM process, this paper proceeds from problem identification through artifact design to evaluation via expert interviews. Section 2 reviews related work, Section 3 describes the methodology, Section 4 presents the artifact, Section 5 reports the evaluation, and Section 6 discusses contributions and limitations."</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /thread -->
+
+  <!-- Flow summary -->
+  <div class="flow-section">
+    <p class="section-label">The logical thread</p>
+    <div class="flow-chips">
+      <span class="chip" style="background:var(--s1-bg);color:var(--s1-text);">Domain matters</span>
+      <span class="chip-arrow">→</span>
+      <span class="chip" style="background:var(--s2-bg);color:var(--s2-text);">Something is broken</span>
+      <span class="chip-arrow">→</span>
+      <span class="chip" style="background:var(--s3-bg);color:var(--s3-text);">Prior work falls short</span>
+      <span class="chip-arrow">→</span>
+      <span class="chip" style="background:var(--s4-bg);color:var(--s4-text);">We will build X</span>
+      <span class="chip-arrow">→</span>
+      <span class="chip" style="background:var(--s5-bg);color:var(--s5-text);">DSR is why</span>
+      <span class="chip-arrow">→</span>
+      <span class="chip" style="background:var(--s6-bg);color:var(--s6-text);">Here is the map</span>
+    </div>
+    <p class="flow-note">Target length: <strong>500–800 words</strong> for the whole introduction. Each step should flow logically from the previous one — if a reader can skip a step without losing the thread, tighten it.</p>
+  </div>
+
+  <!-- Common mistakes -->
+  <div class="mistakes-section">
+    <p class="section-label">Three things junior researchers often get wrong</p>
+    <div class="mistake">
+      <div class="mistake-x">✗</div>
+      <p><strong>Starting with a definition.</strong> "According to X, a dataspace is..." makes readers passive immediately. Start with real-world consequence and pull them in first.</p>
+    </div>
+    <div class="mistake">
+      <div class="mistake-x">✗</div>
+      <p><strong>A gap that is too broad.</strong> "Little research exists on this topic" will be challenged by reviewers. Be precise: this specific combination of requirements, this artifact type, this context.</p>
+    </div>
+    <div class="mistake">
+      <div class="mistake-x">✗</div>
+      <p><strong>Steps that do not connect.</strong> The problem should follow naturally from the relevance. The gap from the problem. The objective from the gap. A broken logical chain means a weak introduction.</p>
+    </div>
+  </div>
+
+  <!-- Key references -->
+  <div class="ref-section">
+    <p class="section-label">Key DSR references</p>
+    <div class="ref-item">
+      <span class="ref-year">2004</span>
+      <span><strong>Hevner, March, Park & Ram</strong> — "Design Science in Information Systems Research." <em>MIS Quarterly, 28(1)</em>. The foundational framework for DSR.</span>
+    </div>
+    <div class="ref-item">
+      <span class="ref-year">2007</span>
+      <span><strong>Peffers, Tuunanen, Rothenberger & Chatterjee</strong> — "A Design Science Research Methodology for Information Systems Research." <em>Journal of MIS, 24(3)</em>. The six-step DSRM process.</span>
+    </div>
+    <div class="ref-item">
+      <span class="ref-year">2013</span>
+      <span><strong>Gregor & Hevner</strong> — "Positioning and Presenting Design Science Research for Maximum Impact." <em>MIS Quarterly, 37(2)</em>. How to frame DSR contributions.</span>
+    </div>
+    <div class="ref-item">
+      <span class="ref-year">2014</span>
+      <span><strong>Wieringa</strong> — <em>Design Science Methodology for Information Systems and Software Engineering.</em> Springer. Useful if your work leans toward engineering design.</span>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<footer>
+  A guide for junior researchers in Information Systems &amp; Design Science Research.
+</footer>
+
+<script>
+  function toggle(btn) {
+    const expandable = btn.nextElementSibling;
+    const isOpen = expandable.classList.toggle('open');
+    btn.classList.toggle('open', isOpen);
+    btn.innerHTML = isOpen
+      ? 'Hide <span class="chevron" style="transform:rotate(180deg);display:inline-block;">▾</span>'
+      : 'Show example &amp; tips <span class="chevron">▾</span>';
+    const texts = {
+      'Show gap types': 'Hide gap types',
+      'Show key references': 'Hide key references',
+      'Show example': 'Hide example',
+    };
+    for (const [k, v] of Object.entries(texts)) {
+      if (btn.textContent.includes(k.replace('Show','Hide')) || btn.textContent.includes(k)) {
+        btn.innerHTML = isOpen
+          ? v + ' <span class="chevron" style="transform:rotate(180deg);display:inline-block;">▾</span>'
+          : k + ' <span class="chevron">▾</span>';
+      }
+    }
+  }
+</script>
+</body>
+</html>
