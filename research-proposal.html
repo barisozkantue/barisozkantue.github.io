@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Prepare an MSc Research Proposal — A Guide for Junior Researchers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #F7F5F0;
+    --surface: #FFFFFF;
+    --surface2: #F0EDE6;
+    --text-primary: #1A1814;
+    --text-secondary: #5C5850;
+    --text-muted: #9C9890;
+    --border: rgba(0,0,0,0.10);
+    --border-strong: rgba(0,0,0,0.18);
+
+    --s1-bg: #E8F0FC; --s1-text: #1A3A7A; --s1-accent: #3B6DD4; --s1-line: #9BB8EE;
+    --s2-bg: #FDF0DC; --s2-text: #5C3200; --s2-accent: #C47A10; --s2-line: #F0BE70;
+    --s3-bg: #EEEDfe; --s3-text: #2E2580; --s3-accent: #6258CC; --s3-line: #A8A2E4;
+    --s4-bg: #E2F5EC; --s4-text: #0A4030; --s4-accent: #1A9060; --s4-line: #60C8A0;
+    --s5-bg: #FAECE6; --s5-text: #601800; --s5-accent: #C04818; --s5-line: #EE8860;
+    --s6-bg: #EDEAE4; --s6-text: #302E28; --s6-accent: #706860; --s6-line: #B8B4AC;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #18160F;
+      --surface: #22201A;
+      --surface2: #2C2920;
+      --text-primary: #EDE8DC;
+      --text-secondary: #A09888;
+      --text-muted: #6C6458;
+      --border: rgba(255,255,255,0.08);
+      --border-strong: rgba(255,255,255,0.15);
+
+      --s1-bg: #0E1E40; --s1-text: #98B8F4; --s1-accent: #6898F0; --s1-line: #2A4880;
+      --s2-bg: #301800; --s2-text: #F0B860; --s2-accent: #D08820; --s2-line: #603000;
+      --s3-bg: #18146A; --s3-text: #B0ACEE; --s3-accent: #9088E4; --s3-line: #302880;
+      --s4-bg: #062818; --s4-text: #68D4A0; --s4-accent: #28A870; --s4-line: #0C5030;
+      --s5-bg: #380800; --s5-text: #F09070; --s5-accent: #E06040; --s5-line: #701800;
+      --s6-bg: #282420; --s6-text: #C0B8A8; --s6-accent: #908880; --s6-line: #484440;
+    }
+  }
+
+  html { font-size: 16px; scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text-primary);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 64px 24px 48px;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--s3-accent);
+  }
+  .hero-sub {
+    font-size: 15px;
+    color: var(--text-secondary);
+    max-width: 520px;
+    line-height: 1.8;
+    margin-bottom: 28px;
+  }
+  .hero-meta {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .hero-meta span {
+    font-size: 12px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .hero-meta strong { color: var(--text-secondary); font-weight: 500; }
+
+  /* Layout */
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* Thread */
+  .thread { position: relative; }
+  .thread::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 24px;
+    bottom: 24px;
+    width: 1px;
+    background: var(--border-strong);
+  }
+
+  /* Step */
+  .step {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 12px;
+    position: relative;
+  }
+
+  .step-spine {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    width: 40px;
+  }
+
+  .step-num {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 500;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+    border: 1.5px solid;
+    transition: transform 0.15s;
+  }
+
+  .step-card {
+    flex: 1;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: box-shadow 0.2s, border-color 0.2s;
+    cursor: pointer;
+  }
+  .step-card:hover { border-color: var(--border-strong); }
+
+  .step-card-header {
+    padding: 18px 20px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .step-top-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 6px;
+    flex-wrap: wrap;
+  }
+  .step-tag {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+  .step-length {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: var(--surface2);
+    color: var(--text-muted);
+    margin-left: auto;
+  }
+  .step-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+  }
+  .step-question {
+    font-size: 12px;
+    font-style: italic;
+    color: var(--text-muted);
+  }
+
+  .step-card-body {
+    padding: 16px 20px;
+  }
+  .step-desc {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    margin-bottom: 12px;
+  }
+
+  .expand-btn {
+    font-size: 11px;
+    color: var(--text-muted);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: color 0.15s;
+  }
+  .expand-btn:hover { color: var(--text-secondary); }
+  .expand-btn .chevron { transition: transform 0.2s; display: inline-block; }
+  .expand-btn.open .chevron { transform: rotate(180deg); }
+
+  .expandable {
+    display: none;
+    border-top: 1px solid var(--border);
+    padding-top: 14px;
+    margin-top: 12px;
+  }
+  .expandable.open { display: block; }
+
+  .callout {
+    font-size: 13px;
+    line-height: 1.65;
+    padding: 10px 12px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    border-left: 2px solid;
+  }
+  .callout strong { font-weight: 500; }
+  .callout-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    color: var(--text-muted);
+  }
+
+  /* Step color theming */
+  .s1 .step-num  { background: var(--s1-bg); color: var(--s1-text); border-color: var(--s1-line); }
+  .s1 .step-tag  { background: var(--s1-bg); color: var(--s1-text); }
+  .s1 .callout   { background: var(--s1-bg); color: var(--s1-text); border-color: var(--s1-accent); }
+
+  .s2 .step-num  { background: var(--s2-bg); color: var(--s2-text); border-color: var(--s2-line); }
+  .s2 .step-tag  { background: var(--s2-bg); color: var(--s2-text); }
+  .s2 .callout   { background: var(--s2-bg); color: var(--s2-text); border-color: var(--s2-accent); }
+
+  .s3 .step-num  { background: var(--s3-bg); color: var(--s3-text); border-color: var(--s3-line); }
+  .s3 .step-tag  { background: var(--s3-bg); color: var(--s3-text); }
+  .s3 .callout   { background: var(--s3-bg); color: var(--s3-text); border-color: var(--s3-accent); }
+
+  .s4 .step-num  { background: var(--s4-bg); color: var(--s4-text); border-color: var(--s4-line); }
+  .s4 .step-tag  { background: var(--s4-bg); color: var(--s4-text); }
+  .s4 .callout   { background: var(--s4-bg); color: var(--s4-text); border-color: var(--s4-accent); }
+
+  .s5 .step-num  { background: var(--s5-bg); color: var(--s5-text); border-color: var(--s5-line); }
+  .s5 .step-tag  { background: var(--s5-bg); color: var(--s5-text); }
+  .s5 .callout   { background: var(--s5-bg); color: var(--s5-text); border-color: var(--s5-accent); }
+
+  .s6 .step-num  { background: var(--s6-bg); color: var(--s6-text); border-color: var(--s6-line); }
+  .s6 .step-tag  { background: var(--s6-bg); color: var(--s6-text); }
+  .s6 .callout   { background: var(--s6-bg); color: var(--s6-text); border-color: var(--s6-accent); }
+
+  /* Flow bar */
+  .flow-section {
+    margin-top: 36px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px 24px;
+  }
+  .section-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+  }
+  .flow-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+  .chip {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 5px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .chip-arrow { font-size: 12px; color: var(--text-muted); }
+  .flow-note {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+  }
+  .flow-note strong { color: var(--text-primary); font-weight: 500; }
+
+  /* Mistakes */
+  .mistakes-section {
+    margin-top: 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px 24px;
+  }
+  .mistake {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 14px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+  .mistake:last-child { margin-bottom: 0; }
+  .mistake-x {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #FDE8E4;
+    color: #B03020;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  @media (prefers-color-scheme: dark) {
+    .mistake-x { background: #401008; color: #F09080; }
+  }
+  .mistake strong { color: var(--text-primary); font-weight: 500; }
+
+  /* References */
+  .ref-section {
+    margin-top: 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px 24px;
+  }
+  .ref-item {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .ref-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .ref-year {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: var(--surface2);
+    color: var(--text-muted);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .ref-item strong { color: var(--text-primary); font-weight: 500; }
+  .doi-link { font-size: 11px; font-family: var(--font-mono, monospace); color: var(--text-muted); text-decoration: none; border-bottom: 1px solid var(--border-strong); white-space: nowrap; margin-left: 4px; transition: color 0.15s; }
+  .doi-link:hover { color: var(--text-secondary); }
+
+  /* Footer */
+  footer {
+    margin-top: 48px;
+    padding: 24px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (max-width: 540px) {
+    .hero { padding: 40px 16px 32px; }
+    .container { padding: 0 16px 60px; }
+    .step-card-header, .step-card-body { padding: 14px 16px; }
+    .flow-section, .mistakes-section, .ref-section { padding: 16px; }
+    .thread::before { left: 19px; }
+  }
+
+  /* Site navigation (shared across pages) */
+  .site-nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+  .site-nav-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .site-brand {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.05rem;
+    color: var(--text-primary);
+    text-decoration: none;
+  }
+  .site-links {
+    display: flex;
+    gap: 4px;
+    margin-left: auto;
+    overflow-x: auto;
+  }
+  .site-links a {
+    font-size: 13px;
+    color: var(--text-secondary);
+    padding: 6px 12px;
+    border-radius: 20px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.15s, color 0.15s;
+  }
+  .site-links a:hover { background: var(--surface2); color: var(--text-primary); }
+  .site-links a[aria-current="page"] {
+    background: var(--s3-bg);
+    color: var(--s3-text);
+    font-weight: 500;
+  }
+  a:focus-visible, button:focus-visible, input:focus-visible {
+    outline: 2px solid var(--s3-accent);
+    outline-offset: 2px;
+  }
+  @media (max-width: 540px) {
+    .site-nav-inner { padding: 10px 16px; gap: 8px; }
+    .site-links { margin-left: -12px; width: calc(100% + 12px); }
+  }
+
+  /* Inline link */
+  .inline-link { color: var(--s3-accent); text-decoration: none; border-bottom: 1px solid var(--s3-line); }
+  .inline-link:hover { color: var(--text-primary); }
+
+  /* Self-check */
+  .check-section {
+    margin-top: 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px 24px;
+  }
+  .check-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .check-count {
+    font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 20px;
+    background: var(--surface2); color: var(--text-muted); white-space: nowrap;
+    transition: background 0.2s, color 0.2s;
+  }
+  .check-count.done { background: var(--s4-bg); color: var(--s4-text); }
+  .check-item {
+    display: flex; gap: 12px; align-items: flex-start;
+    font-size: 13px; color: var(--text-secondary); line-height: 1.7;
+    padding: 8px 0; border-bottom: 1px solid var(--border); cursor: pointer;
+  }
+  .check-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .check-item input { width: 16px; height: 16px; margin-top: 4px; flex-shrink: 0; accent-color: var(--s4-accent); cursor: pointer; }
+  .check-item strong { color: var(--text-primary); font-weight: 500; }
+  .check-item:has(input:checked) span { color: var(--text-muted); }
+  .check-item:has(input:checked) strong { color: var(--text-muted); }
+  @media (max-width: 540px) { .check-section { padding: 16px; } }
+
+  /* Storyline */
+  .story-intro { font-size: 13px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 10px; }
+  .story-intro strong { color: var(--text-primary); font-weight: 500; }
+  .story-list { margin-bottom: 14px; }
+  .story-row {
+    display: flex; justify-content: space-between; align-items: center; gap: 12px;
+    padding: 9px 0; border-bottom: 1px solid var(--border);
+  }
+  .story-row:last-child { border-bottom: none; }
+  .story-row strong { display: block; font-size: 13px; font-weight: 500; color: var(--text-primary); }
+  .story-row div span { display: block; font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+  .story-pill { font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; }
+
+  /* Living document */
+  .living-section {
+    margin-top: 16px; background: var(--surface); border: 1px solid var(--border);
+    border-radius: 14px; padding: 22px 24px;
+  }
+  .living-text { font-size: 13px; color: var(--text-secondary); line-height: 1.75; margin-bottom: 12px; }
+  .living-text:last-child { margin-bottom: 0; }
+  .living-text strong { color: var(--text-primary); font-weight: 500; }
+  .living-questions {
+    display: flex; flex-wrap: wrap; gap: 8px 28px; margin: 4px 0 16px;
+    padding: 14px 16px; border-left: 2px solid var(--s3-accent); background: var(--s3-bg); border-radius: 8px;
+  }
+  .living-questions span {
+    font-family: 'DM Serif Display', serif; font-style: italic; font-size: 1.2rem; color: var(--s3-text);
+  }
+  @media (max-width: 540px) { .living-section { padding: 16px; } }
+</style>
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Guides">
+  <div class="site-nav-inner">
+    <a class="site-brand" href="index.html">DSR Guides</a>
+    <div class="site-links">
+      <a href="index.html">Introduction</a>
+      <a href="research-proposal.html" aria-current="page">Proposal</a>
+      <a href="supervision.html">Supervision</a>
+    </div>
+  </div>
+</nav>
+
+<div class="hero">
+  <p class="hero-eyebrow">Research Methods Guide</p>
+  <h1>How to Prepare an <em>MSc</em> Research Proposal</h1>
+  <p class="hero-sub">A good proposal balances what you want to find out with what you can realistically do, given your data, time, resources and methods. This guide walks through the six elements every proposal needs and the storyline that connects them.</p>
+  <div class="hero-meta">
+    <span>📄 <strong>6 elements</strong></span>
+    <span>🔁 <strong>Iterative</strong> by design</span>
+    <span>🎯 <strong>MSc thesis research</strong></span>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="thread">
+
+    <!-- Step 1 -->
+    <div class="step s1">
+      <div class="step-spine"><div class="step-num">1</div></div>
+      <div class="step-card">
+        <div class="step-card-header">
+          <div class="step-top-row">
+            <span class="step-tag">Title</span>
+            <span class="step-length">One line</span>
+          </div>
+          <div class="step-title">Name what the reader will find</div>
+          <div class="step-question">"Does my title signal the goal and context of my research?"</div>
+        </div>
+        <div class="step-card-body">
+          <p class="step-desc">The title is the first promise you make. It should point to the goal or context of your study and make a reader want to know more, telling them at a glance what your thesis delivers.</p>
+          <button class="expand-btn" onclick="toggle(this)" aria-expanded="false">Show tips <span class="chevron">▾</span></button>
+          <div class="expandable">
+            <p class="callout-label">A good title does two things</p>
+            <div class="callout s1"><strong>Signals the goal or context</strong> of your research</div>
+            <div class="callout s1" style="margin-top:6px;"><strong>Arouses interest</strong> and indicates what the reader will find in your thesis</div>
+            <p class="callout-label" style="margin-top:12px;">Avoid</p>
+            <div class="callout s1">Generic themes or sub-discipline names, such as <strong>"Process Modeling in Organization XYZ"</strong>. They name a field, not a study.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="step s2">
+      <div class="step-spine"><div class="step-num">2</div></div>
+      <div class="step-card">
+        <div class="step-card-header">
+          <div class="step-top-row">
+            <span class="step-tag">Problem context</span>
+            <span class="step-length">Short section</span>
+          </div>
+          <div class="step-title">Build the case for your research</div>
+          <div class="step-question">"What does the reader need to know to see why this research matters?"</div>
+        </div>
+        <div class="step-card-body">
+          <p class="step-desc">Set the stage so the significance of your work becomes self-evident. Move from why the topic matters, to the problem that exists, to what current knowledge misses. End with a clear statement of the gap or need: <em>this and that, therefore there is a need for …</em></p>
+          <button class="expand-btn" onclick="toggle(this)" aria-expanded="false">Show how to write it <span class="chevron">▾</span></button>
+          <div class="expandable">
+            <p class="callout-label">Four rules for this section</p>
+            <div class="callout s2"><strong>Ground it in literature.</strong> Link your arguments to articles wherever possible.</div>
+            <div class="callout s2" style="margin-top:6px;"><strong>Stay focused.</strong> Leave out dimensions and references that add nothing to your argument.</div>
+            <div class="callout s2" style="margin-top:6px;"><strong>Keep it company-independent.</strong> The context must hold completely without referring to your project company.</div>
+            <div class="callout s2" style="margin-top:6px;"><strong>Keep it short.</strong> Background and related literature get their own chapter in the thesis.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="step s3">
+      <div class="step-spine"><div class="step-num">3</div></div>
+      <div class="step-card">
+        <div class="step-card-header">
+          <div class="step-top-row">
+            <span class="step-tag">Significance</span>
+            <span class="step-length">Own section</span>
+          </div>
+          <div class="step-title">Position your contribution</div>
+          <div class="step-question">"Where does my research fit, and what will it add?"</div>
+        </div>
+        <div class="step-card-body">
+          <p class="step-desc">Given the gap, explain where your study fits and how it differs from or complements existing work. Focus on the <em>scientific</em> contribution, and state it as one or more research goals or questions, adding sub-goals or sub-questions where they help.</p>
+          <button class="expand-btn" onclick="toggle(this)" aria-expanded="false">Show the key choice <span class="chevron">▾</span></button>
+          <div class="expandable">
+            <p class="callout-label">Decide what kind of research this is</p>
+            <div class="callout s3"><strong>Prescriptive research</strong>: your main goal is to develop or (re)design something, as in design science research.</div>
+            <div class="callout s3" style="margin-top:6px;"><strong>Explanatory or descriptive research</strong>: you explore and investigate a phenomenon of the empirical world.</div>
+            <p class="callout-label" style="margin-top:12px;">Test</p>
+            <div class="callout s3">Every goal or question must be <strong>directly and explicitly answered</strong> by your research outputs. If an output can't answer it, rewrite the goal.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="step s4">
+      <div class="step-spine"><div class="step-num">4</div></div>
+      <div class="step-card">
+        <div class="step-card-header">
+          <div class="step-top-row">
+            <span class="step-tag">Objective</span>
+            <span class="step-length">Own section</span>
+          </div>
+          <div class="step-title">Name your concrete outputs</div>
+          <div class="step-question">"What will exist at the end of my study?"</div>
+        </div>
+        <div class="step-card-body">
+          <p class="step-desc">You have said what you propose and why. Now say what you will deliver. Objectives are tangible research outputs, not purpose statements, and each one should follow from a goal or question in Step 3.</p>
+          <button class="expand-btn" onclick="toggle(this)" aria-expanded="false">Show output types <span class="chevron">▾</span></button>
+          <div class="expandable">
+            <p class="callout-label">Outputs can be</p>
+            <div class="callout s4"><strong>Design artifacts</strong>: a model, framework, method, technique, tool, product or algorithm</div>
+            <div class="callout s4" style="margin-top:6px;"><strong>Findings about the phenomenon</strong>: success factors, challenges, evaluation results</div>
+            <div class="callout s4" style="margin-top:6px;"><strong>A mix of both</strong>: for example a framework together with the results of evaluating it</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 5 -->
+    <div class="step s5">
+      <div class="step-spine"><div class="step-num">5</div></div>
+      <div class="step-card">
+        <div class="step-card-header">
+          <div class="step-top-row">
+            <span class="step-tag">Research design</span>
+            <span class="step-length">Research Method section</span>
+          </div>
+          <div class="step-title">Choose your approach, methods and techniques</div>
+          <div class="step-question">"How will I answer my questions with the data, time and resources I have?"</div>
+        </div>
+        <div class="step-card-body">
+          <p class="step-desc">Following your research questions, choose a research approach, then the methods and techniques within it. This is where the balance is tested: your design has to fit the data you can get, its quantity and quality, and your time and resources.</p>
+          <button class="expand-btn" onclick="toggle(this)" aria-expanded="false">Show typical examples <span class="chevron">▾</span></button>
+          <div class="expandable">
+            <p class="callout-label">Typical choices</p>
+            <div class="callout s5"><strong>Approaches</strong>: design science research methodology, case study, grounded theory, Delphi study</div>
+            <div class="callout s5" style="margin-top:6px;"><strong>Data collection and reviews</strong>: interviews, surveys, controlled experiments, simulation, systematic or narrative literature review</div>
+            <div class="callout s5" style="margin-top:6px;"><strong>Analysis techniques</strong>: ANOVA, classification, decision trees, integer programming</div>
+            <p class="callout-label" style="margin-top:12px;">Tip</p>
+            <div class="callout s5">Link each method or technique to the <strong>roadmap step</strong> where you will use it (Step 6).</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 6 -->
+    <div class="step s6">
+      <div class="step-spine"><div class="step-num">6</div></div>
+      <div class="step-card">
+        <div class="step-card-header">
+          <div class="step-top-row">
+            <span class="step-tag">Roadmap</span>
+            <span class="step-length">Section + figure</span>
+          </div>
+          <div class="step-title">Sequence the work</div>
+          <div class="step-question">"Which tasks will I do, and in what order?"</div>
+        </div>
+        <div class="step-card-body">
+          <p class="step-desc">Break the research into work packages and show their logical order, since one step often needs the outputs of another. A literature review typically comes first.</p>
+          <button class="expand-btn" onclick="toggle(this)" aria-expanded="false">Show what to include <span class="chevron">▾</span></button>
+          <div class="expandable">
+            <p class="callout-label">In the Research Roadmap section</p>
+            <div class="callout s6"><strong>A figure</strong> showing your steps and their dependencies</div>
+            <div class="callout s6" style="margin-top:6px;"><strong>The method used in each step</strong>, matching your research design</div>
+            <div class="callout s6" style="margin-top:6px;"><strong>Optionally, a Gantt chart</strong> with milestones and deadlines</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /thread -->
+
+  <!-- Storyline -->
+  <div class="flow-section">
+    <p class="section-label">The storyline behind the sections</p>
+    <p class="story-intro">The six elements are the <strong>document</strong>. Underneath runs a single <strong>argument</strong>, and each move in it lives in one or more sections.</p>
+    <div class="story-list">
+      <div class="story-row"><div><strong>Establishing relevance</strong><span>Why this matters, to whom and to which field</span></div><span class="story-pill" style="background:var(--s2-bg);color:var(--s2-text);">Step 2</span></div>
+      <div class="story-row"><div><strong>Identifying needs</strong><span>The practical or conceptual problem that exists</span></div><span class="story-pill" style="background:var(--s2-bg);color:var(--s2-text);">Step 2</span></div>
+      <div class="story-row"><div><strong>Problematization</strong><span>Reframing that need as a research-worthy question or puzzle</span></div><span class="story-pill" style="background:var(--s2-bg);color:var(--s2-text);">Step 2</span></div>
+      <div class="story-row"><div><strong>Gap spotting</strong><span>What current knowledge misses about the problem</span></div><span class="story-pill" style="background:var(--s2-bg);color:var(--s2-text);">Step 2</span></div>
+      <div class="story-row"><div><strong>Theoretical grounding</strong><span>Anchoring the proposal in existing literature and frameworks</span></div><span class="story-pill" style="background:var(--s3-bg);color:var(--s3-text);">Steps 2–3</span></div>
+      <div class="story-row"><div><strong>Research objective setting</strong><span>Turning the gap into your study's goal and what it will produce</span></div><span class="story-pill" style="background:var(--s4-bg);color:var(--s4-text);">Steps 3–4</span></div>
+      <div class="story-row"><div><strong>Research design</strong><span>How you will pursue that goal: methods, timeline, resources</span></div><span class="story-pill" style="background:var(--s5-bg);color:var(--s5-text);">Steps 5–6</span></div>
+    </div>
+    <p class="flow-note">Read the moves top to bottom and you have the argument; read the sections and you have the document. <strong>Both must tell the same story.</strong></p>
+  </div>
+
+  <!-- Living document -->
+  <div class="living-section">
+    <p class="section-label">A living document</p>
+    <p class="living-text">Expect your proposal to change after the research starts: an assumption turns out false, data is unavailable, a better method appears, new literature is published, or the company's expectations shift. When one element changes, <strong>review all the others</strong> so they stay logically connected as one storyline.</p>
+    <p class="living-text">The proposal does not need to be perfect. It needs to be compact and to show clearly how your research problem and your method relate. It is good enough when it tells you what to do and why:</p>
+    <div class="living-questions">
+      <span>What do I do next?</span>
+      <span>Why am I doing this?</span>
+    </div>
+    <p class="living-text">A proposal that covers all six elements is easy to discuss with your supervisors, gives them a structure for organized feedback, and becomes the blueprint of your thesis.</p>
+  </div>
+
+  <!-- Self-check -->
+  <div class="check-section">
+    <div class="check-head">
+      <p class="section-label">Before you share it with your supervisor</p>
+      <span class="check-count" id="checkCount" aria-live="polite">0 of 8 done</span>
+    </div>
+    <label class="check-item"><input type="checkbox"><span>The title signals the <strong>goal or context</strong>, not a generic theme.</span></label>
+    <label class="check-item"><input type="checkbox"><span>The problem context ends with a clear <strong>gap or need</strong> statement.</span></label>
+    <label class="check-item"><input type="checkbox"><span>The context holds <strong>without mentioning the project company</strong>.</span></label>
+    <label class="check-item"><input type="checkbox"><span>You have decided between <strong>prescriptive</strong> and <strong>explanatory or descriptive</strong> research.</span></label>
+    <label class="check-item"><input type="checkbox"><span>Every goal or question is <strong>directly answered</strong> by an output.</span></label>
+    <label class="check-item"><input type="checkbox"><span>Objectives name <strong>concrete outputs</strong>, not purposes.</span></label>
+    <label class="check-item"><input type="checkbox"><span>Each method is linked to a <strong>roadmap step</strong>.</span></label>
+    <label class="check-item"><input type="checkbox"><span>The design fits your <strong>data, time and resources</strong>.</span></label>
+  </div>
+
+  <!-- Common mistakes -->
+  <div class="mistakes-section">
+    <p class="section-label">Three things that weaken a proposal</p>
+    <div class="mistake">
+      <div class="mistake-x">✗</div>
+      <p><strong>Goals written as wishes.</strong> Research goals and questions are not generic purpose statements. If no output of your study answers them explicitly, they are too vague.</p>
+    </div>
+    <div class="mistake">
+      <div class="mistake-x">✗</div>
+      <p><strong>Objectives that restate the purpose.</strong> An objective names something that will exist at the end: a model, a tool, a list of success factors, evaluation results.</p>
+    </div>
+    <div class="mistake">
+      <div class="mistake-x">✗</div>
+      <p><strong>A context padded with broad literature.</strong> References to very broad topics add length, not argument. Keep only what leads the reader to your gap.</p>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<footer>
+  A guide for junior researchers in Information Systems &amp; Design Science Research.
+</footer>
+
+<script>
+  // Works for every "Show …" button: remembers its original label, swaps Show/Hide.
+  function toggle(btn) {
+    if (!btn.dataset.label) {
+      btn.dataset.label = btn.firstChild.textContent.trim();
+    }
+    const expandable = btn.nextElementSibling;
+    const isOpen = expandable.classList.toggle('open');
+    btn.classList.toggle('open', isOpen);
+    btn.setAttribute('aria-expanded', isOpen);
+    const label = isOpen ? btn.dataset.label.replace(/^Show/, 'Hide') : btn.dataset.label;
+    btn.innerHTML = label + ' <span class="chevron">▾</span>';
+  }
+
+  const boxes = document.querySelectorAll('.check-item input');
+  const count = document.getElementById('checkCount');
+  function updateCount() {
+    const n = [...boxes].filter(b => b.checked).length;
+    count.textContent = n === boxes.length ? 'Ready to submit' : n + ' of ' + boxes.length + ' done';
+    count.classList.toggle('done', n === boxes.length);
+  }
+  boxes.forEach(b => b.addEventListener('change', updateCount));
+</script>
+</body>
+</html>
